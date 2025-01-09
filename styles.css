@@ -8,18 +8,17 @@
   --yellow: hsl(47, 88%, 63%);
 
   --gray-500: hsl(0, 0%, 42%);
-  --gray-900: hsl(0, 0%, 7%);
+  --gray-950: hsl(0, 0%, 7%);
 
   /* === TYPOGRAPHY === */
 
   --font-family: "Figtree", sans-serif;
   --font-bold: 800;
   --font-regular: 500;
-  --font-size-header: 24px;
-  --font-size-para: 16px;
-  --line-height-header: 1.2;
-  --line-height-para: 1.4;
-  --para-spacing: 0.2px;
+  --font-size-big: 24px;
+  --font-size-medium: 16px;
+  --font-size-small: 14px;
+  --line-height: 1.5;
 }
 
 /* === GLOBAL RESETS */
@@ -34,6 +33,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-family);
   background-color: var(--yellow);
+  color: var(--gray-950);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,11 +69,83 @@ ol {
   background-color: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 24px;
   align-items: center;
   max-width: 384px;
+  padding: 24px;
+  border: 1px solid var(--gray-950);
+  border-radius: 24px;
+  -webkit-box-shadow: 8px 8px 0px 0px var(--gray-950);
+  -moz-box-shadow: 8px 8px 0px 0px var(--gray-950);
+  box-shadow: 8px 8px 0px 0px var(--gray-950);
+  line-height: var(--line-height);
+}
+
+img {
+  border-radius: 24px;
 }
 
 .content {
-  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category {
+  background-color: var(--yellow);
+  width: max-content;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-bold);
+}
+
+.date {
+  font-size: var(--font-size-small);
+}
+
+.title {
+  font-size: var(--font-size-big);
+  transition: color 300ms;
+}
+
+.title:hover {
+  color: var(--yellow);
+  cursor: pointer;
+}
+
+.description {
+  color: var(--gray-500);
+  font-size: var(--font-size-medium);
+  font-weight: var(--gray-950);
+}
+
+.author-avatar {
+  width: 32px;
+}
+
+.author {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-name {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-bold);
+}
+
+@media screen and (width <= 375px) {
+  :root {
+    --font-size-big: 20px;
+    --font-size-medium: 14px;
+    --font-size-small: 12px;
+    --line-height: 1.5;
+  }
+
+  .card {
+    max-width: 327px;
+  }
 }
